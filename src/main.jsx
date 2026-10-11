@@ -6,7 +6,7 @@ import './styles.css';
 const EVENT_DATE='2026-10-17T11:00:00+06:00';
 const ADDRESS='Нарын облусу, Ат-Башы району, Калинин айылы, үй №17';
 const MAP_URL=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
-const replaced=new Set([5,7,8,9,10,13,14,17,19,20,21,22,23,24,25,28,29,31,32,33,41,42,47,48]);
+const replaced=new Set([5,7,8,9,10,13,14,17,19,20,21,22,23,24,25,26,27,28,29,31,32,33,41,42,47,48]);
 
 function Layer({x,y,width,height,z=3,animation,duration=3,distance=100,spin,transform,children,className='',layerKey}) {
  const ref=useRef(null);
@@ -16,7 +16,7 @@ function Layer({x,y,width,height,z=3,animation,duration=3,distance=100,spin,tran
   const observer=new IntersectionObserver(([entry])=>{if(entry.isIntersecting){setVisible(true);observer.disconnect();}},{threshold:0});
   observer.observe(ref.current);return()=>observer.disconnect();
  },[animation]);
- return <div ref={ref} data-layer={layerKey} className={`layer ${animation?'reveal':''} ${visible?'visible':''} ${className}`} data-animation={animation} style={{left:`calc(50% - 160px + ${x}px)`,top:y,width,height:height||undefined,zIndex:z,'--duration':`${duration}s`,'--distance':`${distance}px`}}>
+ return <div ref={ref} data-layer={layerKey} className={`layer ${animation?'reveal':''} ${visible?'visible':''} ${className}`} data-animation={animation} style={{left:`calc(50% - 160px + ${x}px)`,top:y>=3944?y-560:y,width,height:height||undefined,zIndex:z,'--duration':`${duration}s`,'--distance':`${distance}px`}}>
   <div className={spin?'layer-content spinning':'layer-content'} style={transform&&!spin?{transform}:undefined}>{children}</div>
  </div>;
 }
@@ -43,26 +43,6 @@ function Countdown(){
  return <div className="countdown" role="timer" aria-label={`Тойго чейин: ${values[0]} күн, ${values[1]} саат, ${values[2]} мүнөт`}>
   {values.map((v,i)=><div className="countdown-circle" key={i}><span>{String(v).padStart(2,'0')}</span></div>)}
  </div>;
-}
-
-function RSVP(){
- const [status,setStatus]=useState('');
- function submit(event){
-  event.preventDefault();const data=new FormData(event.currentTarget);
-  try{localStorage.setItem('nargiza-rsvp',JSON.stringify({name:data.get('name').trim(),attendance:data.get('attendance'),date:EVENT_DATE}));setStatus('Жообуңуз ушул түзмөктө сакталды. Той ээлерине жөнөтүлгөн жок.');}
-  catch{setStatus('Жоопту сактоо мүмкүн болгон жок. Той ээлерине түз кабарлап коюңуз.');}
- }
- return <form className="rsvp" onSubmit={submit}>
-  <label className="name-label" htmlFor="guest-name">Атыңызды жазыңыз…</label>
-  <input id="guest-name" name="name" required maxLength={100} autoComplete="name" aria-describedby="rsvp-note" />
-  <fieldset><legend className="sr-only">Келесизби?</legend>
-   <label><input type="radio" name="attendance" value="yes" required/>Ооба, сөзсүз келем…</label>
-   <label><input type="radio" name="attendance" value="no" required/>Жок, баралбай калат экенмин...</label>
-  </fieldset>
-  <button type="submit">ЖИБЕР</button>
-  <p id="rsvp-note" className="rsvp-note">Жооп ушул түзмөктө гана сакталат.</p>
-  {status&&<p role="status" className="form-status">{status}</p>}
- </form>;
 }
 
 function Music(){
@@ -109,8 +89,6 @@ function App(){
    <Layer x={140} y={3010} width={137} height={100} animation="fadein" duration={6} className="schedule-copy"><p className="schedule-title">Кыз узатуу</p><p>АК БАТА</p></Layer>
    <Layer x={2} y={3077} width={317} height={448} animation="fadein" duration={6} className="schedule-icon third-icon"><img src="/assets/asset-26.png" alt=""/></Layer>
    <Layer x={40} y={3274} width={240} height={90} animation="fadein" duration={6} className="schedule-copy"><p className="schedule-title">Жакшы тилектер</p><p>ЖАҢЫ ТУРМУШ ЖОЛУНА</p></Layer>
-
-   <Layer x={20} y={3899} width={281} height={280}><RSVP/></Layer>
    <Layer x={15} y={4281} width={290} height={60} animation="fadeinleft" duration={4} className="hosts-intro"><p>Сиздерди терең урматтоо менен<br/>тосуп алуучулар:</p></Layer>
    <Layer x={2} y={4341} width={316} height={130} className="hosts"><p><span>Атасы</span> <strong className="script">Назарбек,</strong></p><p><span>апасы</span> <strong className="script">Доктургуль.</strong></p></Layer>
    <Layer x={-43} y={4980} width={403} height={132} className="footer"><p>Наргиза · Кыз узатуу</p><p>17 октября 2026 года · 11:00</p><p>Калинин айылы, үй №17</p></Layer>
