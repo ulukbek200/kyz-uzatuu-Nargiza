@@ -49,13 +49,17 @@ function Music(){
  const audio=useRef(null);const stopped=useRef(false);const [playing,setPlaying]=useState(false);const [available,setAvailable]=useState(true);
  useEffect(()=>{
   const player=audio.current;
-  const start=()=>{if(!stopped.current&&player.paused)player.play().catch(()=>{});};
-  const scroll=()=>{if(window.scrollY===0){player.pause();player.currentTime=0;}else start();};
-  document.addEventListener('pointerdown',start);window.addEventListener('scroll',scroll,{passive:true});
-  return()=>{document.removeEventListener('pointerdown',start);window.removeEventListener('scroll',scroll);};
+  const start=(event)=>{
+   if(event?.target?.closest?.('.music-toggle'))return;
+   if(!stopped.current&&player.paused)player.play().catch(()=>{});
+  };
+  const gestures=['pointerdown','click','keydown'];
+  start();
+  gestures.forEach(event=>document.addEventListener(event,start));
+  return()=>gestures.forEach(event=>document.removeEventListener(event,start));
  },[]);
  function toggle(){const player=audio.current;if(!player.paused){stopped.current=true;player.pause();}else{stopped.current=false;player.play().catch(()=>setAvailable(false));}}
- return <><audio ref={audio} src="/assets/asset-39.mp3" loop preload="metadata" onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>setAvailable(false)}/>
+ return <><audio ref={audio} src="/assets/asset-39.mp3" autoPlay loop preload="auto" onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onError={()=>setAvailable(false)}/>
   <button className={`music-toggle ${playing?'playing':''}`} onPointerDown={e=>e.stopPropagation()} onClick={toggle} aria-label={playing?'Музыканы токтотуу':'Музыканы ойнотуу'} aria-pressed={playing} title={available?'Музыка':'Музыка жеткиликсиз'}><span aria-hidden="true">{playing?'Ⅱ':'♪'}</span></button></>;
 }
 
