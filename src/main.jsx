@@ -4,9 +4,9 @@ import layers from './layers.json';
 import './styles.css';
 
 const EVENT_DATE='2026-10-17T11:00:00+06:00';
-const ADDRESS='Нарын облусу, Ат-Башы району, Калинин айылы, үй №17';
+const ADDRESS='Нарын облусу, Ат-Башы району, Калинин айылы';
 const MAP_URL=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
-const replaced=new Set([5,7,8,9,10,13,14,17,19,20,21,22,23,24,25,26,27,28,29,31,32,33,41,42,47,48]);
+const replaced=new Set([5,7,8,9,10,13,14,17,19,20,21,22,23,24,25,26,27,28,29,31,32,33,40,41,42,47,48]);
 
 function Layer({x,y,width,height,z=3,animation,duration=3,distance=100,spin,transform,children,className='',layerKey}) {
  const ref=useRef(null);
@@ -23,6 +23,10 @@ function Layer({x,y,width,height,z=3,animation,duration=3,distance=100,spin,tran
 
 function OriginalLayer({layer}) {
  if(!layer.asset)return null;
+ if(layer.key===11)return <Layer {...layer} layerKey={layer.key}><div className="replacement-hero"><img src="/assets/nargiza-portrait.jpg" alt="Наргиза"/></div></Layer>;
+ if(layer.key===4)return <Layer {...layer} layerKey={layer.key}><div className="replacement-address" aria-hidden="true"/></Layer>;
+ const photo=layer.key===36?'nargiza-detail-side.jpg':layer.key===37?'nargiza-detail-front.jpg':null;
+ if(photo)return <Layer {...layer} layerKey={layer.key}><img src={`/assets/${photo}`} alt="" className="photo-cover" width={layer.width} height={layer.height}/></Layer>;
  return <Layer {...layer} layerKey={layer.key}><img src={`/assets/${layer.asset}`} alt="" aria-hidden="true" draggable="false" className={layer.type==='shape'?'photo-cover':''} width={layer.width} height={layer.height}/></Layer>;
 }
 
@@ -83,7 +87,7 @@ function App(){
    <Layer x={3} y={1887} width={314} height={89} animation="zoomin" duration={5}><Countdown/></Layer>
 
    <Layer x={9} y={2218} width={302} height={270} animation="fadeinup" duration={3} className="address-copy">
-    <p>Нарын облусу,<br/>Ат-Башы району,</p><p className="script village">Калинин айылы,</p><p>үй №17</p>
+    <p>Нарын облусу,<br/>Ат-Башы району,</p><p className="script village">Калинин айылы</p>
    </Layer>
    <Layer x={53} y={2512} width={227} height={50}><a className="map-button" href={MAP_URL} target="_blank" rel="noreferrer">КАРТАГА КИРҮҮ <span aria-hidden="true">♧</span></a></Layer>
 
@@ -95,7 +99,7 @@ function App(){
    <Layer x={40} y={3274} width={240} height={90} animation="fadein" duration={6} className="schedule-copy"><p className="schedule-title">Жакшы тилектер</p><p>ЖАҢЫ ТУРМУШ ЖОЛУНА</p></Layer>
    <Layer x={15} y={4281} width={290} height={60} animation="fadeinleft" duration={4} className="hosts-intro"><p>Сиздерди терең урматтоо менен<br/>тосуп алуучулар:</p></Layer>
    <Layer x={2} y={4341} width={316} height={130} className="hosts"><p><span>Атасы</span> <strong className="script">Назарбек,</strong></p><p><span>апасы</span> <strong className="script">Доктургуль.</strong></p></Layer>
-   <Layer x={-43} y={4980} width={403} height={132} className="footer"><p>Наргиза · Кыз узатуу</p><p>17 октября 2026 года · 11:00</p><p>Калинин айылы, үй №17</p></Layer>
+   <Layer x={-43} y={4980} width={403} height={132} className="footer"><p>Наргиза · Кыз узатуу</p><p>17 октября 2026 года · 11:00</p><p>Калинин айылы</p></Layer>
   </main>
   <Music/>
  </>;
