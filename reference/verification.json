@@ -1,0 +1,248 @@
+{
+  "errors": [],
+  "externalRequests": [],
+  "layout": [
+    {
+      "id": 1,
+      "rect": {
+        "x": 93,
+        "y": 1926,
+        "width": 216,
+        "height": 305
+      }
+    },
+    {
+      "id": 2,
+      "rect": {
+        "x": 81,
+        "y": 1656,
+        "width": 228,
+        "height": 322
+      }
+    },
+    {
+      "id": 3,
+      "rect": {
+        "x": 17,
+        "y": 1728,
+        "width": 356,
+        "height": 504
+      }
+    },
+    {
+      "id": 4,
+      "rect": {
+        "x": -9,
+        "y": 2073,
+        "width": 416,
+        "height": 588
+      }
+    },
+    {
+      "id": 6,
+      "rect": {
+        "x": -105,
+        "y": 3944,
+        "width": 599,
+        "height": 847
+      }
+    },
+    {
+      "id": 11,
+      "rect": {
+        "x": -19,
+        "y": -85,
+        "width": 434,
+        "height": 614
+      }
+    },
+    {
+      "id": 12,
+      "rect": {
+        "x": 44,
+        "y": 2500,
+        "width": 303,
+        "height": 429
+      }
+    },
+    {
+      "id": 15,
+      "rect": {
+        "x": 93,
+        "y": 3360,
+        "width": 205,
+        "height": 290
+      }
+    },
+    {
+      "id": 16,
+      "rect": {
+        "x": 110,
+        "y": 694,
+        "width": 169,
+        "height": 239
+      }
+    },
+    {
+      "id": 18,
+      "rect": {
+        "x": -3,
+        "y": 4532,
+        "width": 397,
+        "height": 562
+      }
+    },
+    {
+      "id": 26,
+      "rect": {
+        "x": 86,
+        "y": 3545,
+        "width": 218,
+        "height": 308
+      }
+    },
+    {
+      "id": 27,
+      "rect": {
+        "x": 64,
+        "y": 3635,
+        "width": 262,
+        "height": 370
+      }
+    },
+    {
+      "id": 30,
+      "rect": {
+        "x": 45,
+        "y": 4398,
+        "width": 310,
+        "height": 438
+      }
+    },
+    {
+      "id": 34,
+      "rect": {
+        "x": 35,
+        "y": 2929,
+        "width": 222,
+        "height": 314
+      }
+    },
+    {
+      "id": 35,
+      "rect": {
+        "x": 136,
+        "y": 2705,
+        "width": 191,
+        "height": 270
+      }
+    },
+    {
+      "id": 36,
+      "rect": {
+        "x": 54,
+        "y": 1269,
+        "width": 131,
+        "height": 149
+      }
+    },
+    {
+      "id": 37,
+      "rect": {
+        "x": 205,
+        "y": 1270,
+        "width": 131,
+        "height": 149
+      }
+    },
+    {
+      "id": 38,
+      "rect": {
+        "x": 271,
+        "y": 1978,
+        "width": 245,
+        "height": 347
+      }
+    },
+    {
+      "id": 39,
+      "rect": {
+        "x": 76,
+        "y": 4633,
+        "width": 245,
+        "height": 347
+      }
+    },
+    {
+      "id": 40,
+      "rect": {
+        "x": -19,
+        "y": 15,
+        "width": 443,
+        "height": 432
+      }
+    },
+    {
+      "id": 43,
+      "rect": {
+        "x": 185,
+        "y": 170,
+        "width": 365,
+        "height": 516
+      }
+    },
+    {
+      "id": 44,
+      "rect": {
+        "x": -160,
+        "y": -265,
+        "width": 365,
+        "height": 516
+      }
+    }
+  ],
+  "status": "Жообуңуз ушул түзмөктө сакталды. Той ээлерине жөнөтүлгөн жок.",
+  "saved": {
+    "name": "Текшерүү",
+    "attendance": "yes",
+    "date": "2026-10-17T11:00:00+06:00"
+  },
+  "paused": true,
+  "music": {
+    "paused": false,
+    "duration": 155.43,
+    "readyState": 4
+  },
+  "responsive": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "images": true,
+      "copyOverflow": false
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "images": true,
+      "copyOverflow": false
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430,
+      "images": true,
+      "copyOverflow": false
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "images": true,
+      "copyOverflow": false
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "images": true,
+      "copyOverflow": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+artifacts/
+.sites/
+.env*
+.claude/
+CLAUDE.md
+reference/original.html
+reference/contact-sheet.html
+reference/contact-sheet.png
