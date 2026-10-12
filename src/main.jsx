@@ -4,8 +4,7 @@ import layers from './layers.json';
 import './styles.css';
 
 const EVENT_DATE='2026-10-17T11:00:00+06:00';
-const ADDRESS='Нарын облусу, Ат-Башы району, Калинин айылы';
-const MAP_URL=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const MAP_URL='https://2gis.kg/bishkek/geo/70030076631653740/75.683211,41.088004';
 const replaced=new Set([5,7,8,9,10,13,14,17,19,20,21,22,23,24,25,26,27,28,29,31,32,33,40,41,42,47,48]);
 
 function Layer({x,y,width,height,z=3,animation,duration=3,distance=100,spin,transform,children,className='',layerKey}) {
